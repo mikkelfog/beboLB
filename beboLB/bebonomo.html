@@ -1,0 +1,30 @@
+<head>
+    <title>Bebonomo</title>
+</head>
+<body>
+    <h1>Bebonomo</h1>
+    {{> beboApp}}
+</body>
+
+<template name="beboApp">
+  <h3>Nameholder</h3>
+  <ul>
+    {{#each childname}} <!-- this references the helper function with the name "childname" in the .js file-->
+        <li class="childname">{{name}}</li>
+    {{/each}}
+  </ul>
+  <button class="favorite">Favorite</button>
+  <button class="reject">Reject</button>
+  <h3>Favorite Names</h3>
+  <ul>
+    {{#each favoritename}} <!-- this references the helper function with the name "favoritename" in the .js file-->
+        <li class="childname">{{name}}</li>
+    {{/each}}
+  </ul>
+  <h3>Rejected Names</h3>
+  <ul>
+    {{#each rejectedname}} <!-- this references the helper function with the name "rejectedname" in the .js file-->
+        <li class="childname">{{name}}</li>
+    {{/each}}
+  </ul>
+</template>
