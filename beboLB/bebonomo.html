@@ -1,30 +1,43 @@
 <head>
-    <title>Bebonomo</title>
+  <title>Bebonomo</title>
 </head>
 <body>
-    <h1>Bebonomo</h1>
-    {{> beboApp}}
+  <h1>Bebonomo</h1>
+  {{> beboApp}}
 </body>
 
 <template name="beboApp">
   <h3>Nameholder</h3>
-  <ul>
-    {{#each childname}} <!-- this references the helper function with the name "childname" in the .js file-->
-        <li class="childname">{{name}}</li>
-    {{/each}}
-  </ul>
+  <button class="namegenerator">generate a name</button>
+  <h5 class="name_holder"></h5>
   <button class="favorite">Favorite</button>
   <button class="reject">Reject</button>
-  <h3>Favorite Names</h3>
+  <h3>Favorite Names - denne kan brugeren se</h3>
   <ul>
     {{#each favoritename}} <!-- this references the helper function with the name "favoritename" in the .js file-->
-        <li class="childname">{{name}}</li>
+    <li class="childname">{{name}}</li>
     {{/each}}
   </ul>
-  <h3>Rejected Names</h3>
+  <button class="removefromfavorites">Remove from Favorites</button>
+  <h3>Rejected Names - denne er skjult for brugeren, men skal bruges som reference for ikke at vise navnene igen</h3>
   <ul>
     {{#each rejectedname}} <!-- this references the helper function with the name "rejectedname" in the .js file-->
-        <li class="childname">{{name}}</li>
+    <li class="childname">{{name}}</li>
     {{/each}}
   </ul>
+  <button class="removefromrejected">Remove from Rejected</button>
+  <h3>Childnamelist - dette er den globale liste som "nameholder" skal trække fra - den er selvfølgelig skjult for brugeren</h3>
+  {{> addNameForm}}
+  <ul>
+    {{#each childname}} <!-- this references the helper function with the name "childname" in the .js file-->
+    <li class="childname">{{name}}</li>
+    {{/each}}
+  </ul>
+</template>
+<template name="addNameForm">
+  <form>
+    <input type="text" name="childName">
+    <input type="number" name="childNumber">
+    <input type="submit" value="Add to childnameList">
+  </form>
 </template>
