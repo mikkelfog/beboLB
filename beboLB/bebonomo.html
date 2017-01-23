@@ -7,6 +7,7 @@
 </body>
 
 <template name="beboApp">
+  <!--{{childname2}}-->
   <h3>Nameholder</h3>
   <button class="namegenerator">generate a name</button>
   <h5 class="name_holder"></h5>
@@ -15,14 +16,14 @@
   <h3>Favorite Names - denne kan brugeren se</h3>
   <ul>
     {{#each favoritename}} <!-- this references the helper function with the name "favoritename" in the .js file-->
-    <li class="childname">{{name}}</li>
+    <li class="childname {{selectedClass}}">{{name}}</li>
     {{/each}}
   </ul>
   <button class="removefromfavorites">Remove from Favorites</button>
   <h3>Rejected Names - denne er skjult for brugeren, men skal bruges som reference for ikke at vise navnene igen</h3>
   <ul>
     {{#each rejectedname}} <!-- this references the helper function with the name "rejectedname" in the .js file-->
-    <li class="childname">{{name}}</li>
+    <li class="childname {{selectedClass}}">{{name}}</li>
     {{/each}}
   </ul>
   <button class="removefromrejected">Remove from Rejected</button>
@@ -30,9 +31,10 @@
   {{> addNameForm}}
   <ul>
     {{#each childname}} <!-- this references the helper function with the name "childname" in the .js file-->
-    <li class="childname">{{name}}</li>
+    <li class="childname {{selectedClass}}">{{name}}</li>
     {{/each}}
   </ul>
+  <button class="removefromchildnamelist">Remove from Childnamelist</button>
 </template>
 <template name="addNameForm">
   <form>
