@@ -57,18 +57,6 @@ if(Meteor.isClient){
     },
     //add to favorite function
     'click .favorite': function(){
-      //Old favorite function
-      /*
-      var selectedchildname = Session.get('selectedchildname');
-      var selectedchildID = Session.get('selectedchildID');
-      favoritenamesList.insert({
-        name: selectedchildname
-      });
-      childnameList.remove({
-        _id: selectedchildID
-      })
-      */
-      //new favorite function
       var current_name = Session.get('current_name');
       console.log(current_name);
       favoritenamesList.insert({
@@ -77,6 +65,12 @@ if(Meteor.isClient){
     },
     //reject function (add to rejected list)
     'click .reject': function(){
+      var current_name = Session.get('current_name');
+      console.log(current_name);
+      rejectednamesList.insert({
+        name: current_name
+      });
+/*
       var selectedchildname = Session.get('selectedchildname');
       var selectedchildID = Session.get('selectedchildID');
       rejectednamesList.insert({
@@ -85,6 +79,7 @@ if(Meteor.isClient){
       childnameList.remove({
         _id: selectedchildID
       })
+*/
     },
     //remove from favorites function
     //if something is removed from favorites, it has to be rejected, which is why it goes into the rejected list
@@ -94,8 +89,6 @@ if(Meteor.isClient){
       rejectednamesList.insert({
         name: selectedchildname
       });
-      //maybe this shouldn't remove it from the childnamelist, but rather keep it there.
-      //But since the childnamelist is there for the visual overview right now, it should be removed.
       favoritenamesList.remove({
         _id: selectedchildID
       })
@@ -109,9 +102,6 @@ if(Meteor.isClient){
       var selectedchildID = Session.get('selectedchildID');
       rejectednamesList.remove({
         _id: selectedchildID
-      });
-      childnameList.insert({
-        name: selectedchildname
       });
     },
     //remove from childnamelist function
