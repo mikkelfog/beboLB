@@ -1,16 +1,12 @@
 childnameList = new Mongo.Collection('childnames');
 favoritenamesList = new Mongo.Collection('favoritenames');
 rejectednamesList = new Mongo.Collection('rejectednames');
-
+import { Names } from './imports/collections/names';
 
 if(Meteor.isClient){
   Template.beboApp.helpers({
-    /*
-    'childname2': function(){
-      return childnameList.find().fetch();
-    },*/
     'childname': function(){
-      return childnameList.find();
+      return Names.find();
     },
     'favoritename': function(){
       return favoritenamesList.find();
@@ -31,11 +27,11 @@ if(Meteor.isClient){
   //select a name function
   Template.beboApp.events({
     'click .namegenerator': function(){
-      var n = childnameList.find().count();
+      var n = Names.find().count();
       console.log(n);
       var r = Math.floor(Math.random() * n);
       console.log(r);
-      var current_name = childnameList.findOne({ number: r}, {fields: {name:true}}).name;
+      var current_name = Names.findOne({ number: r}, {fields: {name:true}}).name;
       console.log(current_name);
       $(".name_holder").html(current_name);
       Session.set('current_name', current_name);
