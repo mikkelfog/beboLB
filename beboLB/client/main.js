@@ -1,9 +1,8 @@
 childnameList = new Mongo.Collection('childnames');
 favoritenamesList = new Mongo.Collection('favoritenames');
 rejectednamesList = new Mongo.Collection('rejectednames');
-import { Names } from './imports/collections/names';
+import { Names } from '../imports/collections/names';
 
-if(Meteor.isClient){
   Template.beboApp.helpers({
     'childname': function(){
       return Names.find();
@@ -14,7 +13,7 @@ if(Meteor.isClient){
     'rejectedname': function(){
       return rejectednamesList.find();
     },
-    // this sets the css class "selected" equal to the selected playerId
+    // this sets the css class "selected" equal to the selected nameId
     'selectedClass': function(){
       var childnameID = this._id;
       var selectedchildname = Session.get('selectedchildID');
@@ -24,7 +23,7 @@ if(Meteor.isClient){
     }
   });
 
-  //select a name function
+  //Generate a name and set name to current name
   Template.beboApp.events({
     'click .namegenerator': function(){
       var n = Names.find().count();
@@ -66,16 +65,6 @@ if(Meteor.isClient){
       rejectednamesList.insert({
         name: current_name
       });
-/*
-      var selectedchildname = Session.get('selectedchildname');
-      var selectedchildID = Session.get('selectedchildID');
-      rejectednamesList.insert({
-        name: selectedchildname
-      });
-      childnameList.remove({
-        _id: selectedchildID
-      })
-*/
     },
     //remove from favorites function
     //if something is removed from favorites, it has to be rejected, which is why it goes into the rejected list
@@ -108,6 +97,7 @@ if(Meteor.isClient){
       });
     }
   });
+  /*
   Template.addNameForm.events({
       'submit form': function(event){
         event.preventDefault();
@@ -121,8 +111,4 @@ if(Meteor.isClient){
         event.target.childNumber.value = "";
       }
     });
-}
-
-if(Meteor.isServer){
-  // insert server code here
-}
+    */
