@@ -1,6 +1,9 @@
 //only executed on the server
 import { Meteor } from 'meteor/meteor';
-import { Names } from '../imports/collections/names';
+import { Names } from '../imports/collections/collections';
+import { rejectednamesList } from '../imports/collections/collections';
+import { favoritenamesList } from '../imports/collections/collections';
+
 
 Meteor.startup(() => {
   if (Names.find().count() === 0) {
