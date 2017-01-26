@@ -10,23 +10,16 @@ Template.namegenerator.helpers({
 Template.namegenerator.events({
   //Generate a name and set name to current name
   'click .namegenerator': function(){
-    /* - prøver at få denne til at lytte på css elementet med class =.last_name, men der sker ikke en skid.
-    var familyName = document.getElementById(".last_name").value;
-    console.log(familyName);
-    */
+    var familyName = $(".last_name").val(); //Det sidste jeg tilføjede var () bag val. Hvad gjorde den Søren?
     var n = Names.find().count();
-    console.log(n);
     var r = Math.floor(Math.random() * n);
-    console.log(r);
     var current_name = Names.findOne({ number: r}, {fields: {name:true}}).name;
-    console.log(current_name);
-    $(".name_holder").html(current_name);
+    $(".name_holder").html(current_name + " " + familyName);
     Session.set('current_name', current_name);
   },
   //add to favorite function
   'click .favorite': function(){
     var current_name = Session.get('current_name');
-    console.log(current_name);
     favoritenamesList.insert({
       name: current_name
     });
@@ -34,7 +27,6 @@ Template.namegenerator.events({
   //reject function (add to rejected list)
   'click .reject': function(){
     var current_name = Session.get('current_name');
-    console.log(current_name);
     rejectednamesList.insert({
       name: current_name
     });

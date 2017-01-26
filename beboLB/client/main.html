@@ -3,6 +3,12 @@
 </head>
 <body>
   <h1>Bebonomo</h1>
+  <p>Hej!
+    <br>
+    Denne side er lavet til at give dig inspiration til dit barns navn.
+    <br>
+    Indtast dit efternavn nedenfor og tryk på knappen for at se forslag til navne sammen med dit efternavn.
+  </p>
   {{> namegenerator}} <!--This syntax references a template in the js file -->
   {{> favoritenamesListTemplate}}
   {{> rejectednamesTemplate}}
@@ -10,7 +16,6 @@
 </body>
 
 <template name="namegenerator">
-  <h3>Nameholder</h3>
   <input type="text" name="" value="" class="last_name">
   <button class="namegenerator">generate a name</button>
   <h5 class="name_holder"></h5>
