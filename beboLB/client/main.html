@@ -3,16 +3,22 @@
 </head>
 <body>
   <h1>Bebonomo</h1>
-  {{> beboApp}}
+  {{> namegenerator}} <!--This syntax references a template in the js file -->
+  {{> favoritenamesListTemplate}}
+  {{> rejectednamesTemplate}}
+  {{> childnamelistTemplate}}
 </body>
 
-<template name="beboApp">
-  <!--{{childname2}}-->
+<template name="namegenerator">
   <h3>Nameholder</h3>
+  <input type="text" name="" value="" class="last_name">
   <button class="namegenerator">generate a name</button>
   <h5 class="name_holder"></h5>
   <button class="favorite">Favorite</button>
   <button class="reject">Reject</button>
+</template>
+
+<template name="favoritenamesListTemplate">
   <h3>Favorite Names - denne kan brugeren se</h3>
   <ul>
     {{#each favoritename}} <!-- this references the helper function with the name "favoritename" in the .js file-->
@@ -20,6 +26,9 @@
     {{/each}}
   </ul>
   <button class="removefromfavorites">Remove from Favorites</button>
+</template>
+
+<template name="rejectednamesTemplate">
   <h3>Rejected Names - denne er skjult for brugeren, men skal bruges som reference for ikke at vise navnene igen</h3>
   <ul>
     {{#each rejectedname}} <!-- this references the helper function with the name "rejectedname" in the .js file-->
@@ -27,18 +36,14 @@
     {{/each}}
   </ul>
   <button class="removefromrejected">Remove from Rejected</button>
+</template>
+
+
+<template name="childnamelistTemplate">
   <h3>Childnamelist - dette er den globale liste som "nameholder" skal trække fra - den er selvfølgelig skjult for brugeren</h3>
-  {{> addNameForm}}
   <ul>
     {{#each childname}} <!-- this references the helper function with the name "childname" in the .js file-->
-    <li class="childname {{selectedClass}}">{{name}}</li>
+    <li class="childname">{{name}}</li>
     {{/each}}
   </ul>
-</template>
-<template name="addNameForm">
-  <form>
-    <input type="text" name="childName">
-    <input type="number" name="childNumber">
-    <input type="submit" value="Add to childnameList">
-  </form>
 </template>
