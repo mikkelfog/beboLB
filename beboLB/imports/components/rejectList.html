@@ -1,0 +1,9 @@
+<template name="rejectListTemplate">
+  <h3>Rejected Names</h3> <!-- - denne er skjult for brugeren, men skal bruges som reference for ikke at vise navnene igen -->
+  <ul>
+    {{#each rejectedname}} <!-- this references the helper function with the name "rejectedname" in the .js file-->
+    <li class="childname {{selectedClass}}">{{name}}</li>
+    {{/each}}
+  </ul>
+  <button class="removefromrejected">Remove from Rejected</button>
+</template>

@@ -1,0 +1,11 @@
+<template name="favListTemplate">
+  <div>
+    <h3>Favorite Names</h3> <!-- - denne kan brugeren se -->
+    <ul>
+      {{#each favoritename}} <!-- this references the helper function with the name "favoritename" in the .js file-->
+      <li class="childname {{selectedClass}}">{{name}}</li>
+      {{/each}}
+    </ul>
+    <button class="removefromfavorites">Remove from Favorites</button>
+  </div>
+</template>

@@ -1,0 +1,23 @@
+<body>
+<div class="mainpage">
+  <h1>Bebonomo</h1>
+  {{> loginButtons}}
+  <!--
+  <ul class="menu">
+  <li><a href="./imports/components/favList.html">FavList</a></li>
+  <li href="./rejectList.html">RejectList</li>
+  <li href="./childList.html">childList</li>
+  </ul>
+  -->
+  <p>Hej!
+    <br>
+    Denne side er lavet til at give dig inspiration til dit barns navn.
+    <br>
+    Indtast dit efternavn nedenfor og tryk på knappen for at se forslag til navne sammen med dit efternavn.
+  </p>
+  {{> namegenerator}} <!--This syntax references a template in the js file -->
+  {{> favListTemplate}}
+  {{> rejectListTemplate}}
+  {{> childListTemplate}}
+</div>    
+</body>

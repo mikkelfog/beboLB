@@ -1,3 +1,95 @@
+/* CSS declarations go here */
+body {
+  font-family: "Animatic SC", sans-serif;
+  font-size: 14px;
+  background-color: #999999;
+}
+
+.mainpage {
+  text-align: center;
+  width: 50%;
+  min-width: 600px;
+  margin: auto;
+}
+
+button {
+  border: 2px solid #666666;
+  border-radius: 4px;
+  margin: auto;
+}
+.favorite {
+    background-color: #84cfc5;
+    height: 75px;
+    width: 75px;
+}
+.reject {
+    background-color: #f7aebc;
+    height: 75px;
+    width: 75px;
+}
+
+header {
+  background: #d2edf4;
+  background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+  padding: 20px 15px 15px 15px;
+  position: relative;
+}
+
+#login-buttons {
+  display: block;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 1em;
+}
+
 .selected{
-    background-color: yellow;
+    background-color: #faf59d;
+}
+
+form {
+  margin-top: 10px;
+  margin-bottom: -10px;
+  position: relative;
+}
+
+ul {
+  width: 50%;
+  margin: auto;
+  padding: 0;
+  background: white;
+}
+
+li {
+  position: relative;
+  list-style: none;
+  padding: 5px;
+  border-bottom: #eee solid 1px;
+}
+
+header .hide-completed {
+  float: right;
+}
+
+.toggle-private {
+  margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+  li {
+    padding: 12px 15px;
+  }
+
+  .search {
+    width: 175px;
+    clear: both;
+  }
+
+  .new-task input {
+    padding-bottom: 5px;
+  }
 }

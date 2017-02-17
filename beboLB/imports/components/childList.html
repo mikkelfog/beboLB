@@ -1,0 +1,10 @@
+<template name="childListTemplate">
+  <div  >
+    <h3>Childnamelist</h3> <!-- - dette er den globale liste som "nameholder" skal trække fra - den er selvfølgelig skjult for brugeren -->
+    <ul>
+      {{#each childname}} <!-- this references the helper function with the name "childname" in the .js file-->
+      <li class="childname">{{name}}</li>
+      {{/each}}
+    </ul>
+</div>
+</template>

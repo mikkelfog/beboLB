@@ -7,7 +7,7 @@ import { favoritenamesList } from '../imports/collections/collections';
 
 Meteor.startup(() => {
   if (Names.find().count() === 0) {
-      console.log("Importing private/products.json to db")
+      console.log("Importing private/trialnames.json to db")
       var data = JSON.parse(Assets.getText('trialnames.json')); //meteor looks for this file in the "private" folder
       data.forEach(function (item, index, array) {
           Names.insert(item);

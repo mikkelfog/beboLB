@@ -1,54 +1,5 @@
 <head>
   <title>Bebonomo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 </head>
-<body>
-  <h1>Bebonomo</h1>
-  <p>Hej!
-    <br>
-    Denne side er lavet til at give dig inspiration til dit barns navn.
-    <br>
-    Indtast dit efternavn nedenfor og tryk på knappen for at se forslag til navne sammen med dit efternavn.
-  </p>
-  {{> namegenerator}} <!--This syntax references a template in the js file -->
-  {{> favoritenamesListTemplate}}
-  {{> rejectednamesTemplate}}
-  {{> childnamelistTemplate}}
-</body>
-
-<template name="namegenerator">
-  <input type="text" name="" value="" class="last_name">
-  <button class="namegenerator">generate a name</button>
-  <h5 class="name_holder"></h5>
-  <button class="favorite">Favorite</button>
-  <button class="reject">Reject</button>
-</template>
-
-<template name="favoritenamesListTemplate">
-  <h3>Favorite Names - denne kan brugeren se</h3>
-  <ul>
-    {{#each favoritename}} <!-- this references the helper function with the name "favoritename" in the .js file-->
-    <li class="childname {{selectedClass}}">{{name}}</li>
-    {{/each}}
-  </ul>
-  <button class="removefromfavorites">Remove from Favorites</button>
-</template>
-
-<template name="rejectednamesTemplate">
-  <h3>Rejected Names - denne er skjult for brugeren, men skal bruges som reference for ikke at vise navnene igen</h3>
-  <ul>
-    {{#each rejectedname}} <!-- this references the helper function with the name "rejectedname" in the .js file-->
-    <li class="childname {{selectedClass}}">{{name}}</li>
-    {{/each}}
-  </ul>
-  <button class="removefromrejected">Remove from Rejected</button>
-</template>
-
-
-<template name="childnamelistTemplate">
-  <h3>Childnamelist - dette er den globale liste som "nameholder" skal trække fra - den er selvfølgelig skjult for brugeren</h3>
-  <ul>
-    {{#each childname}} <!-- this references the helper function with the name "childname" in the .js file-->
-    <li class="childname">{{name}}</li>
-    {{/each}}
-  </ul>
-</template>
